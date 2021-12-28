@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1065px" height="176px" viewBox="0 0 1065 176" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Pencil</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-6678.000000, -2258.000000)">
+            <g id="Group-11" transform="translate(6696.000000, 2295.000000)">
+                <rect id="Rectangle" fill="#212121" x="0" y="52" width="16.9660679" height="6"></rect>
+                <path d="M71.9595795,33 L15.0241461,52.7908594 L15.0957545,57.2340318 L71.9595795,77 L953.085828,77 L953.085828,33 L71.9595795,33 Z" id="Rectangle" stroke="#979797" stroke-width="8" fill="#BABABA"></path>
+                <rect id="Rectangle-Copy-16" fill="#64ADFF" x="957.085828" y="32" width="42.9141717" height="46"></rect>
+                <path d="M627.752495,17.3793103 C625.543356,17.3793103 623.752495,15.5884493 623.752495,13.3793103 L623.752495,13.3793103 L623.752495,4 C623.752495,1.790861 625.543356,0 627.752495,0 L627.752495,0 L909.173653,0 C911.382792,0 913.173653,1.790861 913.173653,4 L913.173653,4 L913.173653,17.3793103 L913.173653,84 L856.736527,84 L856.736527,17.3793103 Z" id="Combined-Shape" fill="#64ADFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

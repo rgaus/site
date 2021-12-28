@@ -1,3 +1,93 @@
+{%- if page.expanding_header -%}
+  <div class="site-big-header" id="js-site-big-header">
+    <div class="inner">
+      <!-- <div class="image" id="js&#45;header&#45;image"></div> -->
+      <!-- <script> -->
+      <!--   // setTimeout(function() { -->
+      <!--   //   const headerHeight = document.getElementById('js&#45;site&#45;big&#45;header').getBoundingClientRect().height; -->
+      <!--   //   const startTransitionHeight = 0; -->
+      <!--   //   const endImageSize = 0; -->
+      <!--   //   window.addEventListener('scroll', function() { -->
+      <!--   //     const y = window.scrollY; -->
+      <!--   // -->
+      <!--   //     if (y < startTransitionHeight) { -->
+      <!--   //       document.getElementById('js&#45;header&#45;image').style.width = 216; -->
+      <!--   //       document.getElementById('js&#45;header&#45;image').style.height = 216; -->
+      <!--   //       return -->
+      <!--   //     } -->
+      <!--   // -->
+      <!--   //     const percentageRaw = (y &#45; startTransitionHeight) / (headerHeight &#45; startTransitionHeight); -->
+      <!--   //     const percentage = Math.min(percentageRaw, 1); -->
+      <!--   // -->
+      <!--   //     const imageSize = endImageSize + ((1 &#45; percentage) * (216 &#45; endImageSize)); -->
+      <!--   //     document.getElementById('js&#45;header&#45;image').style.width = imageSize + 'px'; -->
+      <!--   //     document.getElementById('js&#45;header&#45;image').style.height = imageSize + 'px'; -->
+      <!--   //   }); -->
+      <!--   // }, 100); -->
+      <!--  -->
+      <!--   setTimeout(function() { -->
+      <!--     const headerHeight = document.getElementById('js&#45;site&#45;big&#45;header').getBoundingClientRect().height; -->
+      <!--     const headerWidth = window.innerWidth; -->
+      <!--     const initialPositions = Array.from(document.querySelectorAll('.tool')).map(elem => { -->
+      <!--       const pos = elem.getBoundingClientRect(); -->
+      <!--  -->
+      <!--       let initialX = headerWidth / 2, initialY = headerHeight / 2; -->
+      <!--       if (pos.x >= (headerWidth / 2)) { -->
+      <!--         initialX *= &#45;1; -->
+      <!--       } -->
+      <!--       if (pos.y < (headerHeight / 2)) { -->
+      <!--         initialY *= &#45;1; -->
+      <!--       } -->
+      <!--  -->
+      <!--       return [elem, [initialX, initialY], [0, 0]]; -->
+      <!--     }); -->
+      <!--  -->
+      <!--     const startTransitionHeight = 0; -->
+      <!--     const endImageSize = 0; -->
+      <!--     window.addEventListener('scroll', function() { -->
+      <!--       const y = window.scrollY; -->
+      <!--  -->
+      <!--       // if (y < startTransitionHeight) { -->
+      <!--       //   return -->
+      <!--       // } -->
+      <!--  -->
+      <!--       const percentageRaw = (y &#45; startTransitionHeight) / (headerHeight &#45; startTransitionHeight); -->
+      <!--       const percentage = Math.min(Math.max(1 &#45; percentageRaw, 0), 1); -->
+      <!--  -->
+      <!--       console.log(percentage) -->
+      <!--       initialPositions.forEach(([elem, initialPos, finalPos]) => { -->
+      <!--         const x = initialPos[0] + (percentage * (finalPos[0] &#45; initialPos[0])); -->
+      <!--         const y = initialPos[1] + (percentage * (finalPos[1] &#45; initialPos[1])); -->
+      <!--         elem.style.marginLeft = x + 'px'; -->
+      <!--         elem.style.marginTop = y + 'px'; -->
+      <!--       }); -->
+      <!--     }); -->
+      <!--   }, 100); -->
+      <!-- </script> -->
+
+      <div class="image"></div>
+      <div class="content">
+        <h1 class="content-title">I'm <strong>Ryan.</strong></h1>
+        <p class="content-paragraph">
+          I build stuff in my spare time.
+          Also, a software engineer at <a href="https://density.io" target="_blank">Density</a>.
+        </p>
+      </div>
+    </div>
+
+    <img class="tool laptop" src="{{'/assets/img/Laptop.svg' | relative_url}}" />
+    <img class="tool notebook" src="{{'/assets/img/Notebook.svg' | relative_url}}" />
+    <img class="tool wrench" src="{{'/assets/img/Wrench.svg' | relative_url}}" />
+    <img class="tool paintbrush" src="{{'/assets/img/Paintbrush.svg' | relative_url}}" />
+    <img class="tool thread" src="{{'/assets/img/Thread.svg' | relative_url}}" />
+
+    <img class="tool mat" src="{{'/assets/img/Mat.svg' | relative_url}}" />
+    <img class="tool onetwothree" src="{{'/assets/img/1-2-3 Block.svg' | relative_url}}" />
+    <img class="tool camera" src="{{'/assets/img/Sony A6000.svg' | relative_url}}" />
+    <img class="tool keyboard" src="{{'/assets/img/Keyboard.svg' | relative_url}}" />
+  </div>
+{%- endif -%}
+
 <header class="site-header">
 
   <div class="wrapper">

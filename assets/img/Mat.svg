@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2079px" height="1380px" viewBox="0 0 2079 1380" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Mat</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-6657.000000, -2694.000000)">
+            <g id="Group-12" transform="translate(6677.000000, 2702.000000)">
+                <rect id="Rectangle" stroke="#507C79" stroke-width="12" fill="#399891" x="6" y="6" width="2027" height="1332" rx="64"></rect>
+                <g id="Group-3" opacity="0.505487351" transform="translate(62.000000, 72.000000)" stroke="#FFEF02" stroke-width="8">
+                    <polygon id="Path-19" points="0 0 0 1203 1922 1203 1922 0"></polygon>
+                    <path d="M0,961.5 L1922,961.5 L0,961.5 Z" id="Path-19-Copy"></path>
+                    <path d="M0,1201.5 L806.143303,4.54747351e-13 L0,1201.5 Z" id="Path-19-Copy" stroke-dasharray="20,40"></path>
+                    <path d="M0,721.5 L1922,721.5 L0,721.5 Z" id="Path-19-Copy"></path>
+                    <path d="M0,481.5 L1922,481.5 L0,481.5 Z" id="Path-19-Copy"></path>
+                    <path d="M0,240.5 L1922,240.5 L0,240.5 Z" id="Path-19-Copy" transform="translate(961.000000, 240.500000) scale(1, -1) translate(-961.000000, -240.500000) "></path>
+                    <path d="M240,1.5 L240,1203 L240,1.5 Z" id="Path-19-Copy"></path>
+                    <path d="M480,1.5 L480,1203 L480,1.5 Z" id="Path-19-Copy"></path>
+                    <path d="M720,1.5 L720,1203 L720,1.5 Z" id="Path-19-Copy"></path>
+                    <path d="M960,1.5 L960,1203 L960,1.5 Z" id="Path-19-Copy"></path>
+                    <path d="M1201.5,1.5 L1201.5,1203 L1201.5,1.5 Z" id="Path-19-Copy"></path>
+                    <path d="M1441.5,1.5 L1441.5,1203 L1441.5,1.5 Z" id="Path-19-Copy"></path>
+                    <path d="M1681.5,1.5 L1681.5,1203 L1681.5,1.5 Z" id="Path-19-Copy"></path>
+                </g>
+                <path d="M1385,940 L1980,940 L1980,940 L1980,1178 L1385,1178 C1382.79086,1178 1381,1176.20914 1381,1174 L1381,944 C1381,941.790861 1382.79086,940 1385,940 Z" id="Rectangle" fill="#94A964" opacity="0.900204613"></path>
+            </g>
+            <g id="Group-19" transform="translate(8147.000000, 98.000000)">
+                <path d="M651.556442,1198.62004 L701.528598,2497.72766 L701.133918,2497.74104 L701.24785,2501.82524 L653.583286,2599.60556 L598.770898,2509.85993 L597.874918,2472.99204 L551.577918,1207.57693 L651.556442,1198.62004 Z" id="Combined-Shape" stroke="#2B2B2B" stroke-width="12" fill="#BABABA"></path>
+                <g id="Group-13" transform="translate(676.972474, 1302.000000) rotate(-15.000000) translate(-676.972474, -1302.000000) translate(311.972474, 52.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

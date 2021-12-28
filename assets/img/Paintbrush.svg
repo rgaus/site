@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="362px" height="1042px" viewBox="0 0 362 1042" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Paintbrush</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-7181.000000, -134.000000)">
+            <g id="Group-2" transform="translate(7198.000000, 152.000000)">
+                <rect id="Rectangle-Copy-15" fill="#212121" transform="translate(162.000000, 686.500000) scale(1, -1) translate(-162.000000, -686.500000) " x="108" y="372" width="108" height="629"></rect>
+                <rect id="Rectangle-Copy-14" fill="#212121" x="0" y="354" width="324" height="95" rx="40"></rect>
+                <rect id="Rectangle-Copy-13" fill="#ADADAD" x="0" y="307" width="324" height="95"></rect>
+                <g id="Group-20">
+                    <polygon id="Rectangle" fill="#C141FF" points="0 0 55.6305126 0 64.2262502 10.2519142 96.5397823 0 179.755025 0 179.755025 10.2519142 195.682078 0 271.725242 0 293.035591 10.2519142 296.214786 0 324 0 324 326 0 326"></polygon>
+                    <polygon id="Rectangle" fill="#B73DF2" points="0 283.560555 324 148 324 327 0 327"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
