@@ -3,7 +3,7 @@
 ---
 @import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
 
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,600");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600");
 
 // ----------------------------------------------------------------------------
 // DESIGN TOKENS
@@ -15,7 +15,7 @@ $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $header-font-weight: 600;
 $small-font-size:  $base-font-size * 0.875 !default;
-$base-line-height: 1.5 !default;
+$base-line-height: 1.6 !default;
 
 $spacing-unit:     24px !default;
 
@@ -37,7 +37,10 @@ $purple: #C042FF;
 $black: #212121;
 $gray: #DBDBDB;
 $gray-000: #F8F8F8;
+$gray-500: #828282;
 $white: #FFF;
+
+$link-base-color: $blue;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -66,7 +69,15 @@ $white: #FFF;
   "minima/custom-styles"     // Hook to override existing styles.
 ;
 
+%wrapper-row {
+  @extend .wrapper;
+  &:after { content: none; }
+}
 
+
+body {
+  background-color: $white;
+}
 
 h1, h2, h3, h4, h5, h6 {
   color: $black;
@@ -89,12 +100,13 @@ $big-header-content-width: $content-width;
   padding-top: $spacing-unit;
   padding-bottom: $spacing-unit;
   background-color: $gray-000;
+  border-bottom: 2px solid $gray;
 
   position: relative;
   overflow: hidden;
 
   .inner {
-    @extend .wrapper;
+    @extend %wrapper-row;
 
     display: flex;
     flex-direction: column;
@@ -121,9 +133,10 @@ $big-header-content-width: $content-width;
 
     .content {
       font-family: $header-font-family;
+      font-weight: 300;
 
       .content-title {
-        font-weight: $base-font-weight;
+        font-weight: 300;
       }
       .content-paragraph {
         @include relative-font-size(1.25);
@@ -176,5 +189,152 @@ $big-header-content-width: $content-width;
       width: 440px;
       transform: translate(480px, 8px) rotate(0deg);
     }
+  }
+}
+.site-big-header + .site-header {
+  border: 0px;
+}
+
+.site-header {
+  height: 72px;
+  border: 0px;
+  font-family: $header-font-family;
+  display: flex;
+  align-items: center;
+  .inner {
+    @extend %wrapper-row;
+
+    width: $content-width;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .site-title-mark {
+      width: 48px;
+    }
+    .page-link {
+      font-weight: 500;
+      padding: 8px;
+    }
+    .page-link.active {
+      color: $white;
+      border: 1px solid $blue;
+      border-radius: 8px;
+      background-color: $blue;
+    }
+  }
+}
+
+.post-header {
+  @extend %wrapper-row;
+  padding-top: $spacing-unit;
+  display: flex;
+
+  .post-title {
+    margin-bottom: 6px;
+  }
+
+  .post-subtitle {
+    color: $black;
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  .post-meta {
+    color: $gray-500;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .post-header-image {
+    width: 128px;
+    padding-right: 24px;
+  }
+
+  @include media-query($on-large) {
+    padding-top: 0px;
+    flex-direction: column;
+    .post-header-image {
+      width: 128px;
+      margin: 0px auto;
+      padding-right: 0px;
+      padding-bottom: 24px;
+    }
+  }
+}
+
+.post-content {
+  @extend %wrapper-row;
+}
+
+// When rendering a video inline to the post, use these styles. However, fall back to a full-width
+// view when on mobile.
+.post-content-video {
+  background-color: $black;
+  margin-right: 16px;
+  border: 8px solid $blue;
+  border-radius: 8px;
+  overflow: hidden;
+
+  width: 400px;
+  float: left;
+  .post-content-video-inner {
+    aspect-ratio: 16 / 9;
+    width: 400px;
+  }
+
+  @include media-query($on-large) {
+    width: 100%;
+    height: 250px;
+    float: none;
+    border: 0px;
+    margin-bottom: 32px;
+    .post-content-video-inner {
+      height: 250px;
+      margin: 0px auto;
+    }
+  }
+}
+
+.post-video-well {
+  @extend %wrapper-row;
+  display: flex;
+  justify-content: center;
+  background-color: $black;
+  margin-bottom: $spacing-unit;
+  border-radius: 8px;
+}
+.post-video-well-inner {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 800px;
+}
+
+.post-content {
+  img {
+    border: 8px solid $gray;
+    border-radius: 8px;
+  }
+
+  img.left {
+    float: left;
+    width: 300px;
+    margin-right: $spacing-unit;
+    margin-bottom: $spacing-unit;
+  }
+
+  img.right {
+    float: right;
+    width: 300px;
+    margin-right: $spacing-unit;
+    margin-bottom: $spacing-unit;
+  }
+
+  img.mid {
+    width: 800px;
+    margin-bottom: $spacing-unit;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
