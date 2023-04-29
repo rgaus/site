@@ -8,9 +8,12 @@
 // ----------------------------------------------------------------------------
 // DESIGN TOKENS
 // ----------------------------------------------------------------------------
+
+// DESIGN TOKENS: FONTS
 $base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Symbol", "Segoe UI Emoji", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
 $header-font-family: "Josefin Sans";
+
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
 $header-font-weight: 600;
@@ -21,26 +24,30 @@ $spacing-unit:     24px !default;
 
 $table-text-align: left !default;
 
+// DESIGN TOKENS: COLORS
+$gray-900: #212121;
+$gray-500: #828282;
+$gray-300: #dbdbdb;
+$gray-000: #f8f8f8;
+$white: #ffffff;
+
+$blue-900: #0d437e;
+$blue-500: #64adff;
+$blue-300: #7fbbff;
+$blue-000: #eff6ff;
+
+$green-500: #79CC1F;
+$purple-500: #C042FF;
+
+// DESIGN TOKENS: OTHER
 // Width of the content area
 $content-width:    1000px !default;
+$on-medium:        600px !default;
+$on-large:         800px !default;
 
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-palm:          $on-medium !default;
+$on-laptop:        $on-large !default;
 
-$on-medium:        $on-palm !default;
-$on-large:         $on-laptop !default;
-
-$blue: #64ADFF;
-$green: #79CC1F;
-$purple: #C042FF;
-
-$black: #212121;
-$gray: #DBDBDB;
-$gray-000: #F8F8F8;
-$gray-500: #828282;
-$white: #FFF;
-
-$link-base-color: $blue;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -61,6 +68,10 @@ $link-base-color: $blue;
   font-size: #{$ratio}rem;
 }
 
+@function space($n) {
+  @return $n * $spacing-unit;
+}
+
 // Import pre-styling-overrides hook and style-partials.
 @import
   "minima/custom-variables", // Hook to override predefined variables.
@@ -69,38 +80,64 @@ $link-base-color: $blue;
   "minima/custom-styles"     // Hook to override existing styles.
 ;
 
+@import "icons/scss/fontawesome.scss";
+@import "icons/scss/light.scss";
+
 %wrapper-row {
   @extend .wrapper;
   &:after { content: none; }
 }
 
+// ----------------------------------------------------------------------------
+// STYLE DEFAULTS
+// ------------------------------------------------------------------------------
 
 body {
   background-color: $white;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $black;
+  color: $gray-900;
   font-family: $header-font-family;
   font-weight: $header-font-weight;
 }
 
+a {
+  cursor: pointer;
+  color: $blue-900;
+  border-bottom: 1px dotted $blue-900;
+  text-decoration: none;
+  opacity: 0.85;
+  &:visited {
+    color: $blue-900;
+  }
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+  &:active, &:focus {
+    opacity: 1;
+    color: $gray-900;
+    border-bottom: 1px dotted $gray-900;
+    text-decoration: none;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// SITE HEADER
+// ------------------------------------------------------------------------------
+$big-header-content-width: $content-width;
 
 .site-header {
   border-top: 1px solid $border-color-01;
 }
 
-
-
-
-$big-header-content-width: $content-width;
-
 .site-big-header {
   width: 100%;
-  padding-top: $spacing-unit;
-  padding-bottom: $spacing-unit;
-  background-color: $gray-000;
-  border-bottom: 2px solid $gray;
+  padding-top: space(1);
+  padding-bottom: space(1);
+  background-color: $blue-000;
+  border-bottom: 2px solid $gray-300;
 
   position: relative;
   overflow: hidden;
@@ -113,10 +150,10 @@ $big-header-content-width: $content-width;
     align-items: center;
 
     .image {
-      // position: fixed;
+      margin-top: 16px;
       width: 216px;
       height: 216px;
-      margin-bottom: $spacing-unit;
+      margin-bottom: space(1);
       border-radius: 50%;
       background-image: url({{ "/assets/img/smile.png" | relative_url }});
       background-repeat: no-repeat;
@@ -134,14 +171,32 @@ $big-header-content-width: $content-width;
     .content {
       font-family: $header-font-family;
       font-weight: 300;
+      margin-top: 32px;
 
       .content-title {
         font-weight: 300;
+        @include relative-font-size(2.5);
+        margin-bottom: 0px;
       }
       .content-paragraph {
         @include relative-font-size(1.25);
-        a {
-          text-decoration: underline;
+      }
+      .content-more {
+        display: inline-block;
+        width: 170px;
+
+        @include relative-font-size(1.25);
+        font-weight: 500;
+        border-bottom-color: transparent;
+        i {
+          transition: all 100ms ease-in-out;
+          margin-left: space(0.1);
+        }
+        &:hover {
+          border-bottom-color: $blue-900;
+          i {
+            margin-left: space(0.25);
+          }
         }
       }
     }
@@ -151,43 +206,75 @@ $big-header-content-width: $content-width;
     position: absolute;
     top: 0px;
     left: 50%;
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: all 250ms ease-in-out;
+
+    @mixin make-tool($width, $transform) {
+      width: $width;
+      transform: #{$transform};
+      &:hover {
+        filter: none;
+        transform: #{$transform} scale(1.1);
+        z-index: 999;
+        opacity: 1;
+      }
+    }
 
     &.laptop {
-      width: 340px;
-      transform: translate(-750px, -50px) rotate(0deg);
+      @include make-tool(
+        340px,
+        "translate(-750px, -50px) rotate(0deg)"
+      );
     }
     &.notebook {
-      width: 150px;
-      transform: translate(-430px, 36px) rotate(15deg);
+      @include make-tool(
+        150px,
+        "translate(-430px, 36px) rotate(15deg)"
+      );
     }
     &.wrench {
-      width: 60px;
-      transform: translate(-200px, -24px) rotate(200deg);
+      @include make-tool(
+        60px,
+        "translate(-200px, -24px) rotate(200deg)"
+      );
     }
     &.paintbrush {
-      width: 75px;
-      transform: translate(-260px, 50px) rotate(130deg);
+      @include make-tool(
+        75px,
+        "translate(-260px, 50px) rotate(130deg)"
+      );
     }
     &.thread {
-      width: 132px;
-      transform: translate(-450px, 260px) rotate(-15deg);
+      @include make-tool(
+        132px,
+        "translate(-450px, 260px) rotate(-15deg)"
+      );
     }
 
     &.mat {
-      width: 250px;
-      transform: translate(250px, 120px) rotate(-15deg);
+      @include make-tool(
+        250px,
+        "translate(250px, 120px) rotate(-15deg)"
+      );
     }
     &.onetwothree {
-      width: 90px;
-      transform: translate(144px, 170px) rotate(-120deg);
+      @include make-tool(
+        90px,
+        "translate(144px, 170px) rotate(-120deg)"
+      );
     }
     &.camera {
-      width: 200px;
-      transform: translate(160px, 32px) rotate(15deg);
+      @include make-tool(
+        200px,
+        "translate(160px, 32px) rotate(15deg)"
+      );
     }
     &.keyboard {
-      width: 440px;
-      transform: translate(480px, 8px) rotate(0deg);
+      @include make-tool(
+        440px,
+        "translate(480px, 8px) rotate(0deg)"
+      );
     }
   }
 }
@@ -219,16 +306,20 @@ $big-header-content-width: $content-width;
     }
     .page-link.active {
       color: $white;
-      border: 1px solid $blue;
+      border: 1px solid $blue-500;
       border-radius: 8px;
-      background-color: $blue;
+      background-color: $blue-500;
     }
   }
 }
 
+// ----------------------------------------------------------------------------
+// BLOG POST
+// ----------------------------------------------------------------------------
+
 .post-header {
   @extend %wrapper-row;
-  padding-top: $spacing-unit;
+  padding-top: space(1);
   display: flex;
 
   .post-title {
@@ -236,7 +327,7 @@ $big-header-content-width: $content-width;
   }
 
   .post-subtitle {
-    color: $black;
+    color: $gray-900;
     font-style: italic;
     font-size: 16px;
   }
@@ -271,9 +362,9 @@ $big-header-content-width: $content-width;
 // When rendering a video inline to the post, use these styles. However, fall back to a full-width
 // view when on mobile.
 .post-content-video {
-  background-color: $black;
+  background-color: $gray-900;
   margin-right: 16px;
-  border: 8px solid $blue;
+  border: 8px solid $blue-500;
   border-radius: 8px;
   overflow: hidden;
 
@@ -301,8 +392,8 @@ $big-header-content-width: $content-width;
   @extend %wrapper-row;
   display: flex;
   justify-content: center;
-  background-color: $black;
-  margin-bottom: $spacing-unit;
+  background-color: $gray-900;
+  margin-bottom: space(1);
   border-radius: 8px;
 }
 .post-video-well-inner {
@@ -313,27 +404,27 @@ $big-header-content-width: $content-width;
 
 .post-content {
   img {
-    border: 8px solid $gray;
+    border: 8px solid $gray-300;
     border-radius: 8px;
   }
 
   img.left {
     float: left;
     width: 300px;
-    margin-right: $spacing-unit;
-    margin-bottom: $spacing-unit;
+    margin-right: space(1);
+    margin-bottom: space(1);
   }
 
   img.right {
     float: right;
     width: 300px;
-    margin-right: $spacing-unit;
-    margin-bottom: $spacing-unit;
+    margin-right: space(1);
+    margin-bottom: space(1);
   }
 
   img.mid {
     width: 800px;
-    margin-bottom: $spacing-unit;
+    margin-bottom: space(1);
     margin-left: auto;
     margin-right: auto;
   }
