@@ -82,6 +82,7 @@ $on-laptop:        $on-large !default;
 
 @import "icons/scss/fontawesome.scss";
 @import "icons/scss/light.scss";
+@import "icons/scss/brands.scss";
 
 %wrapper-row {
   @extend .wrapper;
@@ -288,6 +289,7 @@ $big-header-content-width: $content-width;
   font-family: $header-font-family;
   display: flex;
   align-items: center;
+
   .inner {
     @extend %wrapper-row;
 
@@ -299,16 +301,87 @@ $big-header-content-width: $content-width;
 
     .site-title-mark {
       width: 48px;
+      border-bottom: 0px;
     }
     .page-link {
-      font-weight: 500;
-      padding: 8px;
+      cursor: pointer;
+      color: $blue-900;
+      padding-bottom: 1px;
+      border-bottom: 1px dotted transparent;
+      text-decoration: none;
+      opacity: 0.85;
+      @include relative-font-size(1.25);
+      &:visited {
+        color: $blue-900;
+      }
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+        border-bottom-color: $gray-900;
+      }
+      &:active, &:focus {
+        opacity: 1;
+        color: $gray-900;
+        border-bottom-color: $gray-900;
+        text-decoration: none;
+      }
     }
     .page-link.active {
-      color: $white;
-      border: 1px solid $blue-500;
-      border-radius: 8px;
-      background-color: $blue-500;
+      font-weight: 800;
+      border-bottom: 1px solid $blue-900;
+    }
+  }
+}
+
+.site-nav {
+  width: auto;
+
+  .trigger {
+    transition: all 250ms ease-in-out;
+  }
+
+  .social-media-links {
+    display: inline-flex;
+    gap: space(0.25);
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: space(1);
+      height: space(1);
+      border: 0px;
+      color: $gray-900;
+      &:visited {
+        color: $gray-900;
+      }
+      &:hover {
+        opacity: 1;
+      }
+      &:active, &:focus {
+        opacity: 1;
+        color: $blue-900;
+      }
+    }
+  }
+
+  // Show the mobile nav icon when on small screens
+  @include media-query($on-medium) {
+    .trigger {
+      position: fixed;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background-color: $white;
+      z-index: 9999;
+      padding-top: 72px;
+      padding-right: space(0.5);
+
+      .page-link {
+        display: inline-block;
+        text-align: left;
+      }
     }
   }
 }
