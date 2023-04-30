@@ -2,8 +2,11 @@
 layout: page
 title: About
 permalink: /about/
+transparent_header: true
+about_page_header: true
 ---
 
+foo
 - Picture?
 - Social Media
 - "Moderate"

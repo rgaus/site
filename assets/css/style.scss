@@ -132,6 +132,14 @@ $big-header-content-width: $content-width;
 .site-header {
   border-top: 1px solid $border-color-01;
 }
+.site-header.transparent {
+  background-color: transparent;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 999;
+}
 
 .site-big-header {
   width: 100%;
@@ -370,8 +378,8 @@ $big-header-content-width: $content-width;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: space(1);
-    height: space(1);
+    width: space(1.25);
+    height: space(1.25);
     border: 0px;
     color: $gray-900;
     &:visited {
@@ -385,6 +393,20 @@ $big-header-content-width: $content-width;
       color: $blue-900;
     }
   }
+}
+
+.curved-bottom {
+  background-color: $white;
+  width: 100%;
+  height: 128px;
+  transform: scale(-1);
+  clip-path: path('M0 77.8539C0 77.8539 38.4576 3.86698 576.543 21.5998C1114.63 39.3326 1662.61 119.546 2195.37 134.069C2728.12 148.592 2835 79.6903 2835 79.6903L2835-2.27374e-13L0-2.27374e-13L0 77.8539Z');
+}
+.curved-top {
+  @extend .curved-bottom;
+  background-color: $white;
+  height: 86px;
+  transform: scale(1.5, 1) translateY(-60px);
 }
 
 
@@ -528,5 +550,113 @@ $big-header-content-width: $content-width;
     margin-bottom: space(1);
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// ABOUT PAGE
+// ----------------------------------------------------------------------------
+.about-header {
+  width: 100%;
+  padding-top: space(1);
+  background-color: $blue-000;
+
+  position: relative;
+  overflow: hidden;
+
+  .inner {
+    @extend %wrapper-row;
+
+    display: flex;
+    justify-content: space-between;
+
+    .image {
+      display: flex;
+      order: 2;
+      margin-top: space(5);
+      width: 216px;
+      height: 216px;
+      margin-bottom: space(1);
+      border-radius: 50%;
+      background-image: url({{ "/assets/img/smile.png" | relative_url }});
+      background-repeat: no-repeat;
+      background-size: 450px; /* hand tuned value */
+      background-position: center;
+      z-index: 999;
+    }
+
+    .content {
+      font-weight: 300;
+      margin-top: space(5);
+      max-width: 480px;
+
+      .content-title {
+        font-family: $header-font-family;
+        font-weight: 300;
+        @include relative-font-size(2.5);
+        height: 48px;
+      }
+      .content-subtitle {
+        font-family: $header-font-family;
+        @include relative-font-size(1.25);
+        color: $gray-500;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.about-projects, .about-work {
+  width: 100%;
+  padding-top: space(2);
+  padding-bottom: space(1);
+
+  &.about-work {
+    background-color: $gray-000;
+  }
+
+  position: relative;
+  overflow: hidden;
+
+  .inner {
+    @extend %wrapper-row;
+
+    display: flex;
+    justify-content: space-between;
+
+    .image {
+      display: flex;
+      order: 2;
+      margin-top: space(5);
+      width: 216px;
+      height: 216px;
+      margin-bottom: space(1);
+      border-radius: 50%;
+      background-image: url({{ "/assets/img/smile.png" | relative_url }});
+      background-repeat: no-repeat;
+      background-size: 450px; /* hand tuned value */
+      background-position: center;
+      z-index: 999;
+    }
+
+    .content {
+      font-weight: 300;
+      max-width: 480px;
+
+      .content-title {
+        font-family: $header-font-family;
+        font-weight: 300;
+        @include relative-font-size(2.5);
+        height: 48px;
+      }
+      .content-subtitle {
+        font-family: $header-font-family;
+        @include relative-font-size(1.25);
+        color: $gray-500;
+        font-style: italic;
+      }
+      .content-paragraph {
+      }
+    }
   }
 }
