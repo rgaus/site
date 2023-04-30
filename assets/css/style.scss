@@ -430,6 +430,32 @@ $big-header-content-width: $content-width;
   }
 }
 
+.post-link {
+  display: inline-block;
+  border-bottom: 0px;
+  height: 32px;
+
+  cursor: pointer;
+  color: $blue-900;
+  border-bottom: 1px dotted transparent;
+  text-decoration: none;
+  opacity: 0.85;
+  &:visited {
+    color: $blue-900;
+  }
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    border-bottom-color: $blue-900;
+  }
+  &:active, &:focus {
+    opacity: 1;
+    color: $gray-900;
+    border-bottom-color: $gray-900;
+    text-decoration: none;
+  }
+}
+
 .post-content {
   @extend %wrapper-row;
 }
