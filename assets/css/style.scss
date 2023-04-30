@@ -335,34 +335,10 @@ $big-header-content-width: $content-width;
 
 .site-nav {
   width: auto;
+  border-color: transparent;
 
   .trigger {
     transition: all 250ms ease-in-out;
-  }
-
-  .social-media-links {
-    display: inline-flex;
-    gap: space(0.25);
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: space(1);
-      height: space(1);
-      border: 0px;
-      color: $gray-900;
-      &:visited {
-        color: $gray-900;
-      }
-      &:hover {
-        opacity: 1;
-      }
-      &:active, &:focus {
-        opacity: 1;
-        color: $blue-900;
-      }
-    }
   }
 
   // Show the mobile nav icon when on small screens
@@ -385,6 +361,32 @@ $big-header-content-width: $content-width;
     }
   }
 }
+
+.social-media-links {
+  display: inline-flex;
+  gap: space(0.25);
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: space(1);
+    height: space(1);
+    border: 0px;
+    color: $gray-900;
+    &:visited {
+      color: $gray-900;
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &:active, &:focus {
+      opacity: 1;
+      color: $blue-900;
+    }
+  }
+}
+
 
 // ----------------------------------------------------------------------------
 // BLOG POST
