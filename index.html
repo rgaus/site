@@ -1,5 +1,8 @@
 ---
 layout: default
+expanding_header: true
+# list_title: "Recent projects"
+# list_desc: "From time to time, I write a bit about something I've built or experienced."
 ---
 
 <div class="home">
@@ -7,15 +10,13 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
-
+  <!-- {{ content }} -->
 
   {% if site.paginate %}
     {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
   {% endif %}
-
 
   {%- if posts.size > 0 -%}
     <div class="wrapper">

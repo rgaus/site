@@ -144,9 +144,7 @@ $big-header-content-width: $content-width;
 .site-big-header {
   width: 100%;
   padding-top: space(1);
-  padding-bottom: space(1);
   background-color: $blue-000;
-  border-bottom: 2px solid $gray-300;
 
   position: relative;
   overflow: hidden;
@@ -157,6 +155,7 @@ $big-header-content-width: $content-width;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: -48px;
 
     .image {
       margin-top: 16px;
@@ -401,14 +400,56 @@ $big-header-content-width: $content-width;
   height: 128px;
   transform: scale(-1);
   clip-path: path('M0 77.8539C0 77.8539 38.4576 3.86698 576.543 21.5998C1114.63 39.3326 1662.61 119.546 2195.37 134.069C2728.12 148.592 2835 79.6903 2835 79.6903L2835-2.27374e-13L0-2.27374e-13L0 77.8539Z');
+
+  // On mobile, make the shape a little less pronounced
+  @include media-query($on-large) {
+    height: 64px;
+  }
+}
+.curved-bottom.small {
+  background-color: $white;
+  width: 100%;
+  transform: scale(1, -1);
+  height: 128px;
+  clip-path: path('M0 77.8539C0 77.8539 38.4576 3.86698 576.543 21.5998C1114.63 39.3326 1662.61 119.546 2195.37 134.069C2728.12 148.592 2835 79.6903 2835 79.6903L2835-2.27374e-13L0-2.27374e-13L0 77.8539Z');
+
+  // On mobile, make the shape a little less pronounced
+  @include media-query($on-large) {
+    margin-top: 64px;
+    height: 24px;
+  }
 }
 .curved-top {
   @extend .curved-bottom;
   background-color: $white;
   height: 86px;
-  transform: scale(1.5, 1) translateY(-60px);
+  transform: scale(1.5, 1) translateY(-48px);
+  margin-bottom: -48px;
+
+  // On mobile, make the shape a little less pronounced
+  @include media-query($on-large) {
+    height: 64px;
+    margin-bottom: -36px;
+  }
 }
 
+// ----------------------------------------------------------------------------
+// HOME PAGE
+// ----------------------------------------------------------------------------
+
+.post-list-heading {
+  font-weight: 500;
+  @include relative-font-size(1.5);
+  margin-bottom: 0px;
+  color: $gray-900;
+}
+.post-list-description {
+  font-weight: 300;
+  margin-bottom: 0px;
+  font-style: italic;
+  margin-bottom: 16px;
+  color: $gray-500;
+}
 
 // ----------------------------------------------------------------------------
 // BLOG POST
@@ -558,7 +599,7 @@ $big-header-content-width: $content-width;
 // ----------------------------------------------------------------------------
 .about-header {
   width: 100%;
-  padding-top: space(1);
+  margin-top: -24px;
   background-color: $blue-000;
 
   position: relative;
@@ -601,6 +642,19 @@ $big-header-content-width: $content-width;
         @include relative-font-size(1.25);
         color: $gray-500;
         font-style: italic;
+      }
+    }
+
+    @include media-query($on-large) {
+      flex-direction: column;
+      align-items: center;
+
+      .image {
+        margin-top: 48px;
+        order: 0;
+      }
+      .content {
+        margin-top: 16px;
       }
     }
   }
